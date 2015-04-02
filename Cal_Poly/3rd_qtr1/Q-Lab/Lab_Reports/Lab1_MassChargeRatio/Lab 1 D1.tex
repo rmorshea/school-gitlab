@@ -1,0 +1,230 @@
+\documentclass[prb,preprint]{revtex4-1} 
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{A Measurement of the Electron's Charge to Mass Ratio}
+
+\author{Ryan S. Morshead}
+\affiliation{Department of Physics, California State Polytechnic University}
+
+\date{October 8, 2013}
+
+\begin{abstract}
+By heating a cathode at one end of a sealed tube to temperatures high enough to ionize particles off its surface, it's possible, to accelerate them through a potential and then expose them to a magnetic field. Once exposed, the stream of accelerated particles -- often called cathode rays -- will be deflected according to Maxwell's equations. By measuring the degree of curvature experienced by the charged particles, voltage of the anode, current through, and radius of, the electromagnet, this paper measured the charge of the particles in the cathode ray to be $1.73\times10^{11}\pm$ (C/kg). This evaluation of the value for $e/m$ lies within two standard deviations of the accepted value, and further a comparison of the two values yields a percent error of $ $.
+\end{abstract}
+
+
+\maketitle
+
+
+\section{Introduction}
+
+In October of 1897 Joseph John Thomson published a ground-breaking paper outlining an experiment in which he sought to demonstrate that atoms are actually aggregates of charged particles\cite{jjt}. Prior to this experiment it was generally thought that atoms themselves were the fundamental building blocks of matter. However evidence against this notion began to build when the nature of matter was studied more deeply in the context of large electric fields. It had been observed during these studies that an ionized gas, which was brought into a region between two charged plates, would produce an electric current. The creation of the charged particles was accomplished through the use of a heated cathode which would boil those particles off the surface. It was the unanimous opinion of German physicists that the accelerated particles, also known as cathode rays, were created by some unknown processes in the aether\cite{jjt}. The aether itself was understood to be a homogenous fluid medium; Sir Joseph Larmor had theorized its existence in his book Aether and Matter in 1900 which described the atomic constitution of matter. However Thomson pointed out that no phenomena that had been observed up until that point were analogous to this opinion. Thomson believed that what had been observed suggested that the atoms were being broken down into their charged constituents at the cathode. He eventually went on to prove that the current created by the cathode rays was actually formed by a stream of negatively charged particles moving from the cathode to the anode.
+
+The experiment described in this paper sets out to repeat the results of Thomson's experiment, though with slightly different techniques and equipment.
+
+\newpage
+
+\section{Experimental Design}
+
+The experiment described here is conducted in the confines of a sealed vacuum tube whose contents are depicted in Figure \ref{datafig}. At one end of the tube a filament is heated to high temperatures by a 6.3 V voltage source. The particles ionized from the surface of the filament, which we assume to have a negative electric charge and mass, are then accelerated through a voltage that's created between the anode and filament. This voltage is denoted here as $V_a$. Once accelerated the particles pass through a slit in the anode and move into the main chamber of the vacuum tube. This cavity, while being surrounded by two Helmholtz Coils, contains a slanted mica screen with Cartesian coordinates printed on it, and horizontal electrodes above and below the mica screen which are kept at the same potential as the anode. The Helmholtz Coils produce a uniform magnetic field ($B$) which is perpendicular to the direction of the particle's velocity. This magnetic field induces a Lorentz force which causes the particles to accelerate in a circular path. The electrodes on the other hand are in place to ensure that there are no electric fields present which could affect the movement of the particles.
+
+	\begin{figure}[h]
+		\includegraphics[width=.8\textwidth]{ExpFigure.png}
+		\caption{Experimental Arrangement}
+		\label{datafig}
+	\end{figure}
+
+Under the assumption that the particles are charged, and that due to their velocity in a magnetic field their movements in magnetic field can be explained by Maxwell's equations. Thus the course that the particles take will be circular because their velocity is perpendicular to the magnetic field. As such that path can be modeled by Equation \eqref{eq:eq1} where $r$ is the radius of the circle, and $x_0$ and $y_0$ represent the $x$ and $y$ coordinates of the circle's center respectively.
+
+	\begin{equation}\label{eq:eq1}
+		r=\sqrt{\left(x-x_0\right)^2+\left(y-y_0\right)^2}.
+	\end{equation}
+
+If we assume the particles initially travel along the x-axis inscribed on the slanted mica screen and begin accelerating to follow their circular path at the moment they exit the slit in the anode, then the center of the particles circular motion will exist directly above the anode. Thus $y_0=r$, and further algebraic manipulation under those assumptions yields Equation \eqref{eq:eq2}.
+
+	\begin{equation}\label{eq:eq2}
+		r=\frac{\left(x-x_0\right)^2+y^2}{2y}.
+	\end{equation}
+
+Though it's reasonable to assume that the particles only begin to follow their circular trajectory after they leave the slit, as the strong electric field produced by the anode makes any effects from the magnetic field negligible, it's not correct to assume that the particles travel along the x-axis just prior. Thus the experimental procedure which follows moves to account for the inaccuracy of that assumption. This is done by setting the reversing switch attached to the Helmholtz Coils to a neutral position in order to analyze any outside alterations to the particle's trajectory. Then by subtracting these initialized results from the Helmholtz Coil deflection data any extraneous magnetic or electric effects acting on the particles are minimized in the data analysis. Since the minor deflections from the x axis in the absence of the $B$ field are most often curved they may be due to the effects of the earth's magnetic field.
+
+To determine the magnitude of the cathode ray's deflection, the kinetic energy and Lorentz force equations, given by Equation \eqref{eq:eq3} and Equation \eqref{eq:eq4}, are then used in conjunction to find a relationship between $V_a$, $B$, the radius of curvature ($r$), and the ratio of the electric charge (${e}$) to the mass of the particle (${m}$) which can eventually be expressed by Equation \eqref{eq:eq5}.
+
+	\begin{equation}\label{eq:eq3}
+		\frac{1}{2}mv^2=eV_a.
+	\end{equation}
+
+	\begin{equation}\label{eq:eq4}
+		\vec{F}=e\vec{v}\times \vec{B} \implies mv=Ber \implies mv^2=Berv.
+	\end{equation}
+
+	\begin{equation}\label{eq:eq5}
+		\frac{e}{m}=\frac{2V_a}{B^2r^2}.
+	\end{equation}
+
+In the case where relativistic effects should be accounted for, equations \eqref{eq:eq3} and \eqref{eq:eq4} should be modified to account for a relativistic energy and momentum factor of $\gamma$. However, for this experiment, relativistic effects can be said to be negligible as the speed of the particles is significantly smaller than the speed of light. We can show this by taking $V_a$ to be the highest voltage used to calculate $\gamma$ to be about $1.0056$.
+
+The strength of the magnetic field present in the vacuum tube, which is created by two parallel Helmholtz Coils with a current $I$ and a diameter $D$ and induces the cathode ray deflection can then be represented by Equation \eqref{eq:eq6}.
+
+	\begin{equation}\label{eq:eq6}
+		B=\frac{16\mu_0 N I}{\sqrt{125}D},
+	\end{equation}
+
+Where $\mu_0=4\pi\times10^-7 \mbox{ H/m}$ and $N=\mbox{number of turns in the coils}$. Now, as is shown by Equation \eqref{eq:eq7}, once all the relevant equations are collected one can create a single expression for the ratio of the particle's charge to its mass.
+
+	\begin{equation}\label{eq:eq7}
+		\frac{e}{m}=\frac{2V_a}{\left(\frac{16\mu_0 N I}{\sqrt{125}D}\right)^2\left(r\right)^2}.
+	\end{equation}
+
+This is the final relationship which is used to derive the measured values for and the error in $e$/$m$ following the necessary measurements of the unknown variables.
+
+\newpage
+
+\section{Results and analysis}
+
+Five different voltages in the anode were used to measure similar particle trajectories and lessen systematic error. This was done by altering the current through the Helmholtz Coils such that with each new anode voltage the path of the particles would take the same course. Following the collection of the radii for the Helmholtz Coils and initialized trajectroy data, six data points on the mica screen, in addition to the corresponding $I$ value, were collected for each anode voltage; three for each direction on the reversing switch. The result being that data was collected on two different, but near perfect mirror trajectories, thus minimizing systematic error even further. 
+
+\subsection{Analysis}
+
+With the data collected it was then inputed into \textit{Python}'s least squares curve fitting function. By putting the mirrored trajectories for similar voltages on the same graph and finding the best fit curve it was possible to average the results for $r$ and $\delta r$ more simply. The final results for $r$, $\delta r$, and $x_0$ are shown by Figure \ref{LSF:curvature}.
+	Using Equation \eqref{eq:eq7} and \eqref{eq:quaderr}, the error in quadrature and the value for ($e$/$m$) were calculated. These results are found in Table \ref{e/m by v}. The average value for ($e$/$m$) was then calculated using two different methods; the first being a standard calculation of the mean and the second being a linear curve fit by forming the equation for ($e$/$m$) into the  simple $y=mx+b$ form shown in Equation \eqref{eq:lincurve} where $B^2r^2$ is a function of $2V_a$ and $m$ is the slope and thus equal to $\frac{1}{e/m}$. The two values can be found in Table \ref{e/mavgs}. Additionally the linear fit curve and the mean for $e/m$ have visual representations which are depicted in Figure \ref{averages}.
+	
+	\begin{equation}
+		\label{eq:quaderr}
+		\delta \frac{e}{m}
+		=
+		\sqrt{
+		\left(\frac{\partial \frac{e}{m}}{\partial V_a}\right)^2+
+		\left(\frac{\partial \frac{e}{m}}{\partial r}\right)^2+
+		\left(\frac{\partial \frac{e}{m}}{\partial B}\right)^2
+		}.
+	\end{equation}
+	
+	\begin{equation}
+		\label{eq:lincurve}
+		B^2r^2(2V_a) = \frac{2V_a}{m}.
+	\end{equation}
+
+\newpage
+
+\subsection{Results}
+
+	\begin{table}[h!]
+		\centering
+		\caption{Final result for $e/m$ and a comparison with its accepted value}
+		\begin{ruledtabular}
+		\begin{tabular}{l c c c c p{5cm}}
+		$(e/m)_{avg}$ & $(e/m)_{accepted}$ & Percent Error (\%)\\
+		\hline
+		$1.6732\time10^{11}$ & $1.76\times10^{11}$ & 4.93\\
+		\end{tabular}
+		\end{ruledtabular}
+		\label{final results}
+	\end{table}
+
+	\begin{table}[h!]
+		\centering
+		\caption{Average values for $(e/m)$}
+		\begin{ruledtabular}
+		\begin{tabular}{l c c c c p{5cm}}
+		$(e/m)_{avg}$ & $(e/m)_{avg,linear}$ & $\sigma_{e/m}$ & $\delta (e/m)_{avg}$\\
+		\hline
+		$1.6732\times10^11$ & $1.72\times10^{11}$ & $6.81\time10^{9}$ & $6.69\time10^{10}$\\
+		\end{tabular}
+		\end{ruledtabular}
+		\label{e/mavgs}
+	\end{table}
+
+	\begin{figure}[h]
+		\centering
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=.8\textwidth]{LinearGraphEM.png}
+		\end{minipage}%
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=.8\textwidth]{EMComparison.png}
+		\end{minipage}
+		\caption{Comparison of the various average $(e/m)$ values}
+		\label{averages}
+	\end{figure}
+
+	\begin{table}[h!]
+		\centering
+		\caption{Value, and error in, the charge to mass ratio along with other relevant data}
+		\begin{ruledtabular}
+		\begin{tabular}{l c c c c p{5cm}}
+		$V_a$ (v) & $r$ (m) & $\delta r$ (m) & $\frac{e}{m}$ (C/kg) & $\delta\frac{e}{m}$ (C/kg)\\
+		\hline
+		$1000$ & $0.29$ & $0.06$ & $1.566\times10^{11}$ & $6.945\times10^{10}$\\
+		$1500$ & $0.27$ & $0.05$ & \ $1.79\times10^{11}$ & $6.644\times10^{10}$\\
+		$2000$ & $0.29$ & $0.06$ & $1.656\times10^{11}$ & \ $6.61\times10^{10}$\\
+		$2500$ & $0.29$ & $0.06$ & $1.704\times10^{11}$ & \ $6.80\times10^{10}$\\
+		$3000$ & $0.29$ & $0.06$ & \ $1.65\times10^{11}$ & \ $6.22\times10^{10}$\\
+		\end{tabular}
+		\end{ruledtabular}
+		\label{e/m by v}
+	\end{table}
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=\linewidth]{circ1000V.png}
+		\end{minipage}%
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=\linewidth]{circ1500V.png}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=\linewidth]{circ2000V.png}
+		\end{minipage}%
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=\linewidth]{circ2500V.png}
+		\end{minipage}
+	\end{figure}
+	\begin{figure}[h!]
+		\begin{minipage}{.5\textwidth}
+			\includegraphics[width=\linewidth]{circ3000V.png}
+		\end{minipage}
+		\caption{Five graphs showing the cathode ray trajectories based on different values of $V_a$}
+		\label{LSF:curvature}
+	\end{figure}
+
+\newpage
+
+Table \ref{final results} shows that our final results when compared with the accepted value is just under 5\%. Considering the relatively high degree of uncertainty in the data, the measured value of 1.6732e11 C/kg would seem to be a sufficient estimate of the actual value for $e/m$. This is especially true when considering the error test described in equation \eqref{errtest}. Additionally, the linear curve fit of our measurements, though not an official result, managed to yield a value which is even more accurate when compared to the accepted value.
+
+\begin{equation}\label{errtest}
+\left|\left(\frac{e}{m}\right)-\left(\frac{e}{m}\right)_{accepted}\right|\leq2\delta\frac{e}{m}.
+\end{equation}
+
+However, despite the accuracy seen in either of the results it should be noted from Table \ref{e/mavgs} that the standard deviation of the mean (SDM) for $e/m$ is significantly smaller than its error, in fact it's nearly an order of magnitude smaller. Usually when this is the case it signifies some sort of systematic error. But because the SDM, given by Equation \eqref{SDM}, does not include a variable for $\delta (e/m)$ it would be possible to have a SDM value of zero while still having a result for the average error in $e/m$ if all results for it were the same and had some error in their measurement.
+
+\begin{equation}\label{SDM}
+\sigma_x = \sqrt{\frac{1}{N-1}\sum\limits_{i=1}^N (x_i-\bar{x})^2}.
+\end{equation}
+
+The gulf between the two values appears to be an artifact if this since, from Table \ref{e/m by v}, the results for $e/m$ at 2000V and 3000V are nearly identical. thus it can be said for all practical purposes that $2/5$ results for $e/m$ are identical and would likely result in a small standard deviation which is independent of the error associated with those measurements.
+
+\section{Conclusion}
+
+The purpose of this experiment was to, with some degree of accuracy, measure the mass to charge ratio of electrons and thus replicate the pivotal results which Joseph John Thomson found in 1897. Though limitations in experimental apparatuses and method introduced a fairly significant amount of error, the value for $(e/m)$ which this paper concludes is not far from the accepted value. In regards to the significant difference between our SDM for and the the average error in $e/m$ it's likely that more data would expand our SDM significantly as two of our results for $e/m$ are nearly identical. As such systematic error does not seem to be an evident issue in the data, and thus the measurements made can be considered sound.
+
+\begin{acknowledgements}
+Thank you to Jennifer, all my physics teachers, past and present, and the all too glorious \textit{Google}, for help and encouragement through this terribly arduous process.
+\end{acknowledgements}
+
+\begin{thebibliography}{99}
+
+\bibitem{jjt} J. J. Thomson (1856?1940) Philosophical Magazine, 44, 293 (1897).
+
+\bibitem{aether} Aether and Matter, Cambridge University Press, 1900, Chapters X-XI (pp. 161-193)
+
+\end{thebibliography}
+
+\end{document}

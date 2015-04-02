@@ -1,0 +1,177 @@
+\documentclass[prb,preprint]{revtex4-1} 
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{AJP Style Template\\(using LaTex)}
+
+\author{Firstname M. Lastname}
+\email{email@email.com}
+\altaffiliation[permanent address: ]{101 Main Street, 
+  Anytown, USA}
+\affiliation{Department of Physics, California State Polytechnic University...}
+
+\date{\today}
+
+\begin{abstract}
+Lorem ipsum sed nec enim tincidunt, tristique velit vel, laoreet nisl. Cras pharetra felis eget odio fringilla feugiat. Phasellus ut risus sollicitudin, tempus nibh et, laoreet urna. Fusce quam lectus, egestas eget luctus sed, ullamcorper in turpis. Nulla vitae adipiscing quam. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit. Sed cursus consequat leo, vitae rutrum nibh pellentesque et. Pellentesque vehicula, turpis in commodo tincidunt, nulla tellus congue mi, sed pretium odio urna vel mi. Maecenas non semper dolor. In porttitor rhoncus orci, suscipit tempus nisi accumsan et. Nam eu tristique felis.
+\end{abstract}
+
+
+\maketitle
+
+
+\section{Introduction}
+
+Dolor sit amet, consectetur adipiscing elit. Donec placerat velit augue, in ultrices lacus pharetra sit amet. Nullam blandit blandit nibh eu feugiat. Curabitur luctus purus vel nunc interdum, in congue eros rutrum. Fusce in urna a massa convallis mollis vel eget nulla. Nam porttitor ipsum a ante luctus bibendum. Nam id lacus quis est placerat porttitor ut ut risus. Donec rhoncus cursus justo in tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur tristique sagittis augue, in vestibulum metus bibendum vitae. Quisque id condimentum ipsum. Donec porttitor sem eget nisi iaculis, a convallis arcu tristique. Etiam dignissim commodo velit et consectetur.
+
+Fusce vulputate nibh at urna laoreet, pharetra convallis nunc bibendum. Pellentesque rutrum bibendum nisi, id cursus eros. Morbi vulputate fringilla leo, ac pulvinar tellus tempor ac. Aliquam pellentesque tellus ligula, at dignissim nisi porta sit amet. Donec eleifend dapibus mauris ut tempor. Aenean eu velit sit amet turpis pellentesque scelerisque. Suspendisse in dapibus libero. Sed sed magna lacinia, iaculis ipsum vitae, varius lectus. Phasellus lacinia, sapien ac fermentum egestas, neque augue pretium orci, vitae adipiscing purus justo ac elit. Phasellus non cursus augue.
+
+\section{Section two title}
+
+Curabitur luctus purus vel nunc interdum, in congue eros rutrum. Fusce in urna a massa convallis mollis vel eget nulla. Nam porttitor ipsum a ante luctus bibendum. Nam id lacus quis est placerat porttitor ut ut risus. Donec rhoncus cursus justo in tempus.
+
+\begin{equation}\label{eq:eq1}
+\frac{\Delta x}{\Delta t} \mathop{\longrightarrow}_{\Delta t\rightarrow0} \frac{dx}{dt} 
+ = \lim_{\Delta t\rightarrow0} \frac{\Delta x}{\Delta t}
+\end{equation}
+
+\begin{equation}
+\label{eq:eq2}
+E_n = (n + \tfrac12)\hbar, \quad \textrm{where}\  n = 0, 1, 2, \ldots,
+\end{equation}
+
+\begin{equation}
+\label{eq:eq3}
+\begin{bmatrix}
+	t' \\
+	x' \\
+\end{bmatrix}
+=
+\begin{pmatrix}
+	 1 & 5 \\
+	13 & 2 \\
+\end{pmatrix}
+\begin{bmatrix}
+	t \\
+	x \\
+\end{bmatrix},
+\end{equation}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{DataFig.png}
+\caption{Praesent id accumsan urna, vitae porta metus. Donec lectus massa, viverra et neque quis, venenatis cursus ligula.}
+\label{datafig}
+\end{figure}
+
+References To Equations \eqref{eq:eq1} \eqref{eq:eq2} \eqref{eq:eq3} and Figure \ref{datafig} - vulputate nibh at urna laoreet, pharetra convallis nunc bibendum. Pellentesque rutrum bibendum nisi, id cursus eros. Morbi vulputate fringilla leo, ac pulvinar tellus tempor ac. Aliquam pellentesque tellus ligula, at dignissim nisi porta sit amet. Donec eleifend dapibus mauris ut tempor. Fusce vulputate nibh at urna laoreet, pharetra convallis nunc bibendum.
+
+\section{Section three title}
+Vestibulum a quam purus. Praesent id accumsan urna, vitae porta metus. Donec lectus massa, viverra et neque quis, venenatis cursus ligula. Fusce at eleifend dolor. Vivamus at tincidunt massa. Nullam ac ultricies lectus. Sed ac nisi aliquam, vulputate magna et, rhoncus nulla. Nam et nunc scelerisque dui dignissim eleifend id in eros. Vivamus ut turpis nec elit laoreet pellentesque sit amet non lacus. Fusce cursus massa ut nisl gravida, ac aliquet nunc varius. Quisque ultrices massa nec ultrices vestibulum. Donec ac ipsum los de sit.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{ExpFigure.png}
+\caption{Experimental arrangement}
+\label{ExpArrange}
+\end{figure}
+
+Reference To Figure \ref{ExpArrange} - Integer semper aliquam tellus, eu hendrerit elit scelerisque id. Proin vitae varius dolor, non suscipit enim. Integer a pulvinar libero. Vivamus et viverra est, vel cursus orci. Ut eleifend, nunc sed porta volutpat, justo enim hendrerit neque, vitae porttitor tortor elit sed purus. Phasellus vestibulum malesuada cursus. Pellentesque lectus nisi, tincidunt quis dolor vehicula, fringilla feugiat est. Quisque ultrices, justo quis varius tincidunt, ante nisl dapibus nisi, id egestas ligula nisl ac nulla. Quisque ultrices massa nec ultrices vestibulum. Donec ac ipsum sit amet augue facilisis dapibus. Ut imperdiet in ipsum quis bibendum.
+
+\section{Section four title}
+
+Fusce molestie mollis urna. Mauris id leo id lectus aliquet molestie ut euismod lacus. Integer pharetra pellentesque blandit. Morbi fringilla convallis luctus. Sed augue mauris, mollis eu neque a, auctor aliquam urna. Donec pulvinar pharetra placerat. Etiam vel orci eget sem congue fringilla ac et erat. Fusce quis purus neque. In tincidunt justo tellus, vel volutpat ligula semper vitae.
+
+Sed nec enim tincidunt, tristique velit vel, laoreet nisl. Cras pharetra felis eget odio fringilla feugiat. Phasellus ut risus sollicitudin, tempus nibh et, laoreet urna. Fusce quam lectus, egestas eget luctus sed, ullamcorper in turpis. Nulla vitae adipiscing quam. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit. Sed cursus consequat leo, vitae rutrum nibh pellentesque et. Pellentesque vehicula, turpis in commodo tincidunt, nulla tellus congue mi, sed pretium odio urna vel mi. Maecenas non semper dolor. In porttitor rhoncus orci, suscipit tempus nisi accumsan et. Nam eu tristique felis.
+
+\begin{table}[h!]
+\centering
+\caption{Elementary bosons}
+\begin{ruledtabular}
+\begin{tabular}{l c c c c p{5cm}}
+Name & Symbol & Mass (GeV/$c^2$) & Spin & Discovered\\
+\hline
+Photon & $\gamma$ & \ \ 0 & 1 & 1905\\
+Gluons & $g$ & \ \ 0 & 1 & 1978\\
+Weak charged bosons & $W^\pm$ & \ 82 & 1 & 1983\\
+Weak neutral boson & $Z^0$ & \ 91 & 1 & 1983\\
+Higgs boson & $H$ & 126 & 0 & 2012\\
+\end{tabular}
+\end{ruledtabular}
+\label{bosons}
+\end{table}
+
+Reference To Table \ref{bosons} - Nulla vitae adipiscing quam. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit. Sed cursus consequat leo, vitae rutrum nibh pellentesque et. Pellentesque vehicula, turpis in commodo tincidunt, nulla tellus congue mi, sed pretium odio urna vel mi. Maecenas non semper dolor. In porttitor rhoncus orci, suscipit tempus nisi accumsan et. Nam eu tristique felis.
+
+\section{section five title}
+
+Tincidunt, tristique velit vel, laoreet nisl. Cras pharetra felis eget odio fringilla feugiat. Phasellus ut risus sollicitudin, tempus nibh et, laoreet urna. Fusce quam lectus, egestas eget luctus sed, ullamcorper in turpis. Nulla vitae adipiscing quam. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit.Donec pulvinar pharetra placerat. Etiam vel orci eget sem congue fringilla ac et erat. Fusce quis purus neque. In tincidunt justo tellus, vel volutpat ligula semper vitae.
+
+\subsection{Section Five: Subsection One Title} % In subsection headings, only the first word is capitalized.
+
+Fusce molestie mollis urna. Mauris id leo id lectus aliquet molestie ut euismod lacus. Integer pharetra pellentesque blandit. Morbi fringilla convallis luctus. Sed augue mauris, mollis eu neque a, auctor aliquam urna. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit. Sed cursus consequat leo, vitae rutrum nibh pellentesque et. Pellentesque vehicula, turpis in commodo tincidunt, nulla tellus congue mi, sed pretium odio urna vel mi. Maecenas non semper dolor. In porttitor rhoncus orci, suscipit tempus nisi accumsan et. Nam eu tristique felis. Feynman Lectures:\cite{feynman}
+\begin{quote}
+A poet once said, ``The whole universe is in a glass of wine.'' We will 
+probably never know in what sense he meant that, for poets do not write 
+to be understood. But it is true that if we look at a glass of wine closely 
+enough we see the entire universe.
+\end{quote}
+
+\subsection{Section Five: Subsection Two Title}
+
+Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit.Donec pulvinar pharetra placerat. Morbi vulputate fringilla leo, ac pulvinar tellus tempor ac. Aliquam pellentesque tellus ligula, at dignissim nisi porta sit amet. Donec eleifend dapibus mauris ut tempor. Fusce vulputate nibh at urna laoreet, pharetra convallis nunc bibendum.
+
+\begin{enumerate}
+\item bibliography reference: Wheatley\cite{thermoacoustics}
+\item bibliography reference: Freeman J. Dyson\cite{dyson}
+\item bibliography reference: American Institute of Physics\cite{AIPstylemanual}
+\end{enumerate}
+
+Mauris id leo id lectus aliquet molestie ut euismod lacus. Integer pharetra pellentesque blandit. Morbi fringilla convallis luctus. Sed augue mauris, mollis eu neque a, auctor aliquam urna. Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo. Sed viverra enim nec urna interdum bibendum. Phasellus vel nisi id magna fringilla commodo ut at lectus. Nam sed imperdiet elit. Sed cursus consequat leo, vitae rutrum nibh pellentesque et.
+
+\subsection{Section Five: Subsection Three Title}
+
+For a bulleted list, just use \texttt{itemize} instead of \texttt{enumerate}:
+\begin{itemize}
+\item Phasellus vel nisi id
+\item Magna fringilla commodo
+\item Nam sed imperdiet.
+\end{itemize}
+
+\section{Conclusion}
+
+Consectetur adipiscing elit. Donec placerat velit augue, in ultrices lacus pharetra sit amet. Nullam blandit blandit nibh eu feugiat. Curabitur luctus purus vel nunc interdum, in congue eros rutrum. Fusce in urna a massa convallis mollis vel eget nulla. Nam porttitor ipsum a ante luctus bibendum. Nam id lacus quis est placerat porttitor ut ut risus. Donec rhoncus cursus justo in tempus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur tristique sagittis augue, in vestibulum metus bibendum vitae. Quisque id condimentum ipsum. Donec porttitor sem eget nisi iaculis, a convallis arcu tristique. Etiam dignissim commodo velit et consectetur.
+
+\begin{acknowledgments}
+
+Proin malesuada sem nec ipsum elementum pellentesque at a arcu. Etiam sollicitudin, purus in mollis placerat, lacus risus facilisis nisl, quis tempor dolor lectus ac leo.
+
+\end{acknowledgments}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{feynman} Richard P. Feynman, Robert B. Leighton, and Matthew Sands, 
+\textit{The Feynman Lectures on Physics, Vol.\ 1} (Addison-Wesley, 1964), p.~3-10.
+
+\bibitem{thermoacoustics} J. Wheatley, T. Hofler, G. W. Swift, and A. Migliori, ``Understanding
+some simple phenomena in thermoacoustics with applications to acoustical
+heat engines” Am. J. Phys. 53, 147--162 (1985).
+
+\bibitem{dyson} Freeman J. Dyson, ``Feynman's proof of the Maxwell equations,''
+Am. J. Phys. \textbf{58} (3), 209--211.  
+
+\bibitem{AIPstylemanual} \textit{AIP Style Manual}, 4th edition (American 
+Institute of Physics, New York, 1990). Available online at 
+\url{<http://www.aip.org/pubservs/style/4thed/toc.html>}. Although parts of 
+it have been made out of date by advancing technology, most of this manual 
+is still as useful as ever. Just be sure to follow AJP's specific rules
+whenever they conflict with those in the manual.
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,808 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{RadioactiveDecay\_ANLYS\_log}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{c}{\PYZsh{}Lower Discriminator}
+        \PY{c}{\PYZsh{}662=400x}
+        \PY{n}{m}\PY{o}{=}\PY{l+m+mf}{662.}\PY{o}{/}\PY{l+m+mf}{400.}
+        \PY{k}{print} \PY{l+m+mf}{200.}\PY{o}{/}\PY{n}{m}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+120.84592145
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}222}]:} \PY{n}{bck\PYZus{}counts1}\PY{o}{=}\PY{l+m+mi}{353}
+          \PY{n}{bck\PYZus{}counts2}\PY{o}{=}\PY{l+m+mi}{326}
+          \PY{n}{bck\PYZus{}avg}\PY{o}{=}\PY{p}{(}\PY{n}{bck\PYZus{}counts2}\PY{o}{+}\PY{n}{bck\PYZus{}counts1}\PY{p}{)}\PY{o}{/}\PY{l+m+mf}{2.}
+          \PY{n}{tau\PYZus{}dead}\PY{o}{=}\PY{l+m+mf}{400e\PYZhy{}6} \PY{c}{\PYZsh{}seconds}
+\end{Verbatim}
+
+    \subsection{\#Silver Data}\label{silver-data}
+
+\begin{itemize}
+\item
+  \subsection{TRIAL 1}\label{trial-1}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Note: dwell time = 1 s
+  \end{itemize}
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}223}]:} \PY{n}{Rcounts\PYZus{}Ag1} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{51241}\PY{p}{,}\PY{l+m+mi}{41520}\PY{p}{,}\PY{l+m+mi}{58519}\PY{p}{,}\PY{l+m+mi}{52502}\PY{p}{,}\PY{l+m+mi}{69793}\PY{p}{,}\PY{l+m+mi}{47307}\PY{p}{,}\PY{l+m+mi}{60270}\PY{p}{,}\PY{l+m+mi}{43488}\PY{p}{,}\PY{l+m+mi}{49623}\PY{p}{,}\PY{l+m+mi}{53074}\PY{p}{,}\PY{l+m+mi}{63162}\PY{p}{,}\PY{l+m+mi}{42040}\PY{p}{,}\PY{l+m+mi}{60225}\PY{p}{,}\PY{l+m+mi}{52681}\PY{p}{,}\PY{l+m+mi}{49225}\PY{p}{,}\PY{l+m+mi}{61563}\PY{p}{,}\PY{l+m+mi}{33834}\PY{p}{,}\PY{l+m+mi}{46312}\PY{p}{,}\PY{l+m+mi}{36961}\PY{p}{,}\PY{l+m+mi}{34013}\PY{p}{,}\PY{l+m+mi}{33473}\PY{p}{,}\PY{l+m+mi}{38746}\PY{p}{,}\PY{l+m+mi}{47302}\PY{p}{,}\PY{l+m+mi}{54213}\PY{p}{,}\PY{l+m+mi}{28320}\PY{p}{,}\PY{l+m+mi}{37140}\PY{p}{,}\PY{l+m+mi}{58528}\PY{p}{,}\PY{l+m+mi}{38809}\PY{p}{,}\PY{l+m+mi}{28575}\PY{p}{,}\PY{l+m+mi}{15450}\PY{p}{,}\PY{l+m+mi}{28989}\PY{p}{,}\PY{l+m+mi}{33998}\PY{p}{,}\PY{l+m+mi}{20318}\PY{p}{,}\PY{l+m+mi}{31906}\PY{p}{,}\PY{l+m+mi}{32019}\PY{p}{,}\PY{l+m+mi}{24798}\PY{p}{,}\PY{l+m+mi}{32198}\PY{p}{,}\PY{l+m+mi}{41800}\PY{p}{,}\PY{l+m+mi}{30047}\PY{p}{,}\PY{l+m+mi}{18648}\PY{p}{,}\PY{l+m+mi}{33459}\PY{p}{,}\PY{l+m+mi}{35430}\PY{p}{,}\PY{l+m+mi}{18806}\PY{p}{,}\PY{l+m+mi}{21859}\PY{p}{,}\PY{l+m+mi}{22069}\PY{p}{,}\PY{l+m+mi}{25079}\PY{p}{,}\PY{l+m+mi}{28821}\PY{p}{,}\PY{l+m+mi}{20264}\PY{p}{,}\PY{l+m+mi}{22093}\PY{p}{,}\PY{l+m+mi}{18660}\PY{p}{,}\PY{l+m+mi}{18502}\PY{p}{,}\PY{l+m+mi}{20432}\PY{p}{,}\PY{l+m+mi}{24531}\PY{p}{,}\PY{l+m+mi}{27075}\PY{p}{,}\PY{l+m+mi}{28521}\PY{p}{,}\PY{l+m+mi}{25394}\PY{p}{,}\PY{l+m+mi}{24619}\PY{p}{,}\PY{l+m+mi}{23560}\PY{p}{,}\PY{l+m+mi}{18731}\PY{p}{,}\PY{l+m+mi}{21900}\PY{p}{,}\PY{l+m+mi}{21898}\PY{p}{,}\PY{l+m+mi}{20259}\PY{p}{,}\PY{l+m+mi}{20271}\PY{p}{,}\PY{l+m+mi}{15230}\PY{p}{,}\PY{l+m+mi}{20337}\PY{p}{,}\PY{l+m+mi}{17007}\PY{p}{,}\PY{l+m+mi}{15191}\PY{p}{,}\PY{l+m+mi}{11773}\PY{p}{,}\PY{l+m+mi}{30485}\PY{p}{,}\PY{l+m+mi}{5054}\PY{p}{,}\PY{l+m+mi}{13611}\PY{p}{,}\PY{l+m+mi}{23859}\PY{p}{,}\PY{l+m+mi}{16890}\PY{p}{,}\PY{l+m+mi}{16833}\PY{p}{,}\PY{l+m+mi}{20310}\PY{p}{,}\PY{l+m+mi}{16826}\PY{p}{,}\PY{l+m+mi}{18519}\PY{p}{,}\PY{l+m+mi}{21234}\PY{p}{,}\PY{l+m+mi}{13459}\PY{p}{,}\PY{l+m+mi}{11637}\PY{p}{,}\PY{l+m+mi}{23436}\PY{p}{,}\PY{l+m+mi}{16940}\PY{p}{,}\PY{l+m+mi}{20362}\PY{p}{,}\PY{l+m+mi}{5100}\PY{p}{,}\PY{l+m+mi}{15242}\PY{p}{,}\PY{l+m+mi}{8557}\PY{p}{,}\PY{l+m+mi}{13438}\PY{p}{,}\PY{l+m+mi}{13683}\PY{p}{,}\PY{l+m+mi}{10148}\PY{p}{,}\PY{l+m+mi}{17972}\PY{p}{,}\PY{l+m+mi}{15163}\PY{p}{,}\PY{l+m+mi}{17022}\PY{p}{,}\PY{l+m+mi}{20056}\PY{p}{,}\PY{l+m+mi}{20409}\PY{p}{,}\PY{l+m+mi}{13601}\PY{p}{,}\PY{l+m+mi}{13758}\PY{p}{,}\PY{l+m+mi}{8757}\PY{p}{,}\PY{l+m+mi}{20502}\PY{p}{,}\PY{l+m+mi}{11955}\PY{p}{,}\PY{l+m+mi}{11930}\PY{p}{,}\PY{l+m+mi}{10231}\PY{p}{,}\PY{l+m+mi}{15344}\PY{p}{,}\PY{l+m+mi}{15377}\PY{p}{,}\PY{l+m+mi}{15172}\PY{p}{,}\PY{l+m+mi}{18681}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}224}]:} \PY{n}{Rcounts\PYZus{}Ag1N} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{Rcounts\PYZus{}Ag1N}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+m+mf}{0.01}\PY{o}{*}\PY{n}{Rcounts\PYZus{}Ag1}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{Tcounts\PYZus{}Ag1} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{Tcounts\PYZus{}Ag1}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{1.}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}225}]:} \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{)}\PY{p}{)}\PY{p}{,}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{)}\PY{p}{)}
+          \PY{n}{yscale}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{log}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}226}]:} \PY{k}{def} \PY{n+nf}{dRcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{:}
+              \PY{n}{dRcounts\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Rcounts\PYZus{}Ag}\PY{p}{:}
+                  \PY{n}{dRcounts\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return} \PY{n}{dRcounts\PYZus{}Ag}
+          
+          \PY{k}{def} \PY{n+nf}{logRcount\PYZus{}list}\PY{p}{(}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{:}
+              \PY{n}{log\PYZus{}Ag}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Tcounts\PYZus{}Ag}\PY{p}{:}
+                  \PY{n}{log\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{log}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return} \PY{n}{log\PYZus{}Ag}
+          
+          \PY{k}{def} \PY{n+nf}{dTcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{:}
+              \PY{n}{dTcounts\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}error for log(Tcounts\PYZus{}Ag)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{A} \PY{o}{=} \PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{B} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n+nb}{float}\PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+                  \PY{n}{dTcounts\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return} \PY{n}{dTcounts\PYZus{}Ag}
+                  
+          \PY{k}{def} \PY{n+nf}{dlogTcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{:}
+              \PY{n}{dlog\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}error for log(Tcounts\PYZus{}Ag)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{A} \PY{o}{=} \PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{B} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n+nb}{float}\PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}
+                  \PY{n}{dlog\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+              \PY{k}{return} \PY{n}{dlog\PYZus{}Ag}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}227}]:} \PY{n}{dRcounts\PYZus{}Ag1} \PY{o}{=} \PY{n}{dRcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{)}
+          \PY{n}{dTcounts\PYZus{}Ag1} \PY{o}{=} \PY{n}{dTcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{,}\PY{n}{dRcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{tau\PYZus{}dead}\PY{p}{)}
+          \PY{n}{log\PYZus{}Ag1} \PY{o}{=} \PY{n}{logRcount\PYZus{}list}\PY{p}{(}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{)}
+          \PY{n}{dlog\PYZus{}Ag1} \PY{o}{=} \PY{n}{dlogTcount\PYZus{}list}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag1N}\PY{p}{,}\PY{n}{dRcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{tau\PYZus{}dead}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}228}]:} \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_8_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}254}]:} \PY{k}{def} \PY{n+nf}{log\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the natural log of an exponential and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{log}\PY{p}{(}\PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{exp\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of an exponential and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}
+          
+          \PY{k}{def} \PY{n+nf}{exp\PYZus{}comp}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum and individual components of exp\PYZus{}sum in a list}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{p}{[}\PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}\PY{p}{,} \PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{p}{,} \PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{p}{,} \PY{n}{C}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}230}]:} \PY{k+kn}{from} \PY{n+nn}{scipy.optimize} \PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+          \PY{n}{x\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{60}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{45}\PY{p}{)}\PY{p}{)}
+          \PY{n}{y\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{log\PYZus{}Ag1}\PY{p}{[}\PY{l+m+mi}{60}\PY{p}{:}\PY{l+m+mi}{105}\PY{p}{]}\PY{p}{)}
+          \PY{n}{d\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{[}\PY{l+m+mi}{60}\PY{p}{:}\PY{l+m+mi}{105}\PY{p}{]}\PY{p}{)}
+          \PY{n}{p0} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{120}\PY{p}{,}\PY{l+m+mi}{200}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}231}]:} \PY{n}{plsq1}\PY{p}{,} \PY{n}{pcov1} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{log\PYZus{}part}\PY{p}{,}\PY{n}{x\PYZus{}Ag}\PY{p}{,}\PY{n}{y\PYZus{}Ag}\PY{p}{,}\PY{n}{p0}\PY{p}{,}\PY{n}{d\PYZus{}Ag}\PY{p}{)}
+          \PY{k}{print} \PY{n}{plsq1}
+          \PY{k}{print} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T\PYZus{}1/2 silver 108 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[ 756.22784667   26.47198762  142.84737416]
+[ 3135.52426293   417.38668795   475.79708794]
+
+T\_1/2 silver 108 = 18.3489835823 +/- 289.310405954
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}232}]:} \PY{n}{xlots} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{)}
+          \PY{n}{yexp\PYZus{}comp} \PY{o}{=} \PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print} \PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{n}{ylogexpsum} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{yexp\PYZus{}comp}\PY{p}{)}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylogexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}ln(Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C)\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{80}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{yexpsum} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{n}{yexp1} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{n}{yexp2} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{n}{ylin3} \PY{o}{=} \PY{n}{ones}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{*}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp\PYZus{}comp}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{80}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{500}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+756.227846668 26.4719876196 142.847374156
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_12_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_12_2.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}233}]:} \PY{k}{def} \PY{n+nf}{exp\PYZus{}sum}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of two exponentials and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{log\PYZus{}sum}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of two exponentials and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{log}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}234}]:} \PY{n}{x\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{)}
+          \PY{n}{y\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{log\PYZus{}Ag1}\PY{p}{)}
+          \PY{n}{d\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{)}
+          \PY{n}{p0} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{344}\PY{p}{,}\PY{l+m+mi}{45}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}235}]:} \PY{n}{plsq2}\PY{p}{,} \PY{n}{pcov2} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{log\PYZus{}sum}\PY{p}{,}\PY{n}{x\PYZus{}Ag}\PY{p}{,}\PY{n}{y\PYZus{}Ag}\PY{p}{,}\PY{n}{p0}\PY{p}{,}\PY{n}{d\PYZus{}Ag}\PY{p}{)}
+          \PY{k}{print} \PY{n}{plsq2}
+          \PY{k}{print} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T\PYZus{}1/2 silver 110 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{plsq2}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[-310.55064015    2.55824141]
+[ 106.50966795    9.36366066]
+
+T\_1/2 silver 110 = 1.77323781883 +/- 6.49039498384
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}236}]:} \PY{n}{xlots} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{)}
+          \PY{n}{yexp\PYZus{}comp} \PY{o}{=} \PY{n}{exp\PYZus{}comp}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq2}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq1}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{ylogexpsum} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylogexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}ln(Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C)\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{yexpsum} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{n}{yexp1} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{n}{yexp2} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{n}{ylin3} \PY{o}{=} \PY{n}{ones}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{*}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp1}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp2}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylin3}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{900}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_16_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_16_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{itemize}
+\item
+  \subsection{TRIAL 2}\label{trial-2}
+\end{itemize}
+
+*Note: the dwell time for silver is 2.5 s making measurements using 250
+channels span over 2.5x256 s rather than 256 s
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}237}]:} \PY{n}{Ag\PYZus{}dat}\PY{o}{=}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{SilverData.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{unpack}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{6}\PY{p}{,}\PY{n}{usecols}\PY{o}{=}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          \PY{c}{\PYZsh{}print silver\PYZus{}dat[1]}
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Ag\PYZus{}dat}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{c}{\PYZsh{}print shape(silver\PYZus{}dat[1])}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{p}{)}
+          \PY{n}{yscale}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{log}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_18_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}238}]:} \PY{n}{Rcounts\PYZus{}Ag} \PY{o}{=} \PY{n}{Ag\PYZus{}dat}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{c}{\PYZsh{}raw counts}
+          
+          \PY{n}{Tcounts\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}true counts}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{shape}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+              \PY{n}{Tcounts\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mf}{1.}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{p}{(}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}239}]:} \PY{n}{dRcounts\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Rcounts\PYZus{}Ag}\PY{p}{:}
+              \PY{n}{dRcounts\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+          
+          \PY{n}{dTcounts\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}error for log(Tcounts\PYZus{}Ag)}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{A} \PY{o}{=} \PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+              \PY{n}{B} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n+nb}{float}\PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+              \PY{n}{dTcounts\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}240}]:} \PY{c}{\PYZsh{}print dTcounts\PYZus{}Ag}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}241}]:} \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{yscale}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{log}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Channel}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_22_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}242}]:} \PY{n}{log\PYZus{}Ag}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{Tcounts\PYZus{}Ag}\PY{p}{:}
+              \PY{n}{log\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{log}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{)}
+          
+          \PY{n}{dlog\PYZus{}Ag} \PY{o}{=} \PY{p}{[}\PY{p}{]} \PY{c}{\PYZsh{}error for log(Tcounts\PYZus{}Ag)}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+              \PY{n}{A} \PY{o}{=} \PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{400e\PYZhy{}6}\PY{p}{)}\PY{p}{)}
+              \PY{n}{B} \PY{o}{=} \PY{p}{(}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n+nb}{float}\PY{p}{(}\PY{n}{dRcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n+nb}{float}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{n}{tau\PYZus{}dead}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{Rcounts\PYZus{}Ag}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{*}\PY{l+m+mf}{400e\PYZhy{}6}\PY{p}{)}\PY{p}{)}
+              \PY{n}{dlog\PYZus{}Ag}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+            T_1/2 silver 108
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}255}]:} \PY{k}{def} \PY{n+nf}{log\PYZus{}part1}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the natural log of an exponential and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{log}\PY{p}{(}\PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{exp\PYZus{}part1}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of an exponential and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}
+          
+          \PY{k}{def} \PY{n+nf}{exp\PYZus{}comp1}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{,}\PY{n}{B}\PY{p}{,}\PY{n}{tau2}\PY{p}{,}\PY{n}{C}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum and individual components of exp\PYZus{}sum in a list}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{p}{[}\PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{o}{+}\PY{n}{C}\PY{p}{,} \PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{p}{,} \PY{n}{B}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau2}\PY{p}{)}\PY{p}{,} \PY{n}{C}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}256}]:} \PY{k+kn}{from} \PY{n+nn}{scipy.optimize} \PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+          \PY{n}{x\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{300}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{\PYZhy{}}\PY{l+m+mi}{300}\PY{o}{/}\PY{l+m+mf}{2.5}\PY{p}{)}\PY{p}{)}
+          \PY{n}{y\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{[}\PY{l+m+mi}{120}\PY{p}{:}\PY{l+m+mi}{256}\PY{p}{]}\PY{p}{)}
+          \PY{n}{d\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{dTcounts\PYZus{}Ag}\PY{p}{[}\PY{l+m+mi}{120}\PY{p}{:}\PY{l+m+mi}{256}\PY{p}{]}\PY{p}{)}
+          \PY{n}{p0} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{200}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}257}]:} \PY{n}{plsq3}\PY{p}{,} \PY{n}{pcov3} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{exp\PYZus{}part1}\PY{p}{,}\PY{n}{x\PYZus{}Ag}\PY{p}{,}\PY{n}{y\PYZus{}Ag}\PY{p}{,}\PY{n}{p0}\PY{p}{,}\PY{n}{d\PYZus{}Ag}\PY{p}{)}
+          \PY{k}{print} \PY{n}{plsq3}
+          \PY{k}{print} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T\PYZus{}1/2 silver 108 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[ 126.05010836  241.84763082   -1.87340746]
+[ 28.47270473  41.16956708  10.93787915]
+
+T\_1/2 silver 108 = 167.636003426 +/- 28.5365693497
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}284}]:} \PY{n}{xlots} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{)}
+          \PY{n}{yexp\PYZus{}comp} \PY{o}{=} \PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{ylogexpsum} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{yexp\PYZus{}comp}\PY{p}{)}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylogexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{150}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{6.5}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{yexpsum} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{n}{yexp1} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{n}{yexp2} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{n}{ylin3} \PY{o}{=} \PY{n}{ones}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{*}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{6}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp\PYZus{}comp}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{120}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_28_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+            T_1/2 silver 110
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}259}]:} \PY{k}{def} \PY{n+nf}{exp\PYZus{}sum1}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of two exponentials and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          
+          \PY{k}{def} \PY{n+nf}{log\PYZus{}sum1}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{A}\PY{p}{,}\PY{n}{tau1}\PY{p}{)}\PY{p}{:}
+              \PY{l+s}{\PYZsq{}}\PY{l+s}{returns the sum of two exponentials and a constant}\PY{l+s}{\PYZsq{}}
+              \PY{k}{return} \PY{n}{log}\PY{p}{(}\PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{n}{tau1}\PY{p}{)}\PY{o}{+}\PY{n}{exp\PYZus{}part}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}260}]:} \PY{n}{x\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{)}
+          \PY{n}{y\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{)}
+          \PY{n}{d\PYZus{}Ag} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{n}{dTcounts\PYZus{}Ag}\PY{p}{)}
+          \PY{n}{p0} \PY{o}{=} \PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{60}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}261}]:} \PY{n}{plsq4}\PY{p}{,} \PY{n}{pcov4} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{exp\PYZus{}sum1}\PY{p}{,}\PY{n}{x\PYZus{}Ag}\PY{p}{,}\PY{n}{y\PYZus{}Ag}\PY{p}{,}\PY{n}{p0}\PY{p}{,}\PY{n}{d\PYZus{}Ag}\PY{p}{)}
+          \PY{k}{print} \PY{n}{plsq4}
+          \PY{k}{print} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov2}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T\PYZus{}1/2 silver 110 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{plsq4}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov4}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[ 343.41636032   44.22879335]
+[ 106.50966795    9.36366066]
+
+T\_1/2 silver 110 = 30.6570634081 +/- 2.07880252252
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}262}]:} \PY{n}{xlots} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{1000}\PY{p}{)}
+          \PY{n}{yexp\PYZus{}comp} \PY{o}{=} \PY{n}{exp\PYZus{}comp}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq4}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}\PY{n}{plsq4}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{ylogexpsum} \PY{o}{=} \PY{n}{log}\PY{p}{(}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylogexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}ln(Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C)\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{6.5}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+          
+          \PY{n}{yexpsum1} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+          \PY{n}{yexp4} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}
+          \PY{n}{yexp5} \PY{o}{=} \PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}
+          \PY{n}{ylin6} \PY{o}{=} \PY{n}{ones}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{*}\PY{n}{yexp\PYZus{}comp}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+          
+          \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexpsum1}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp4}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp5}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylin6}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{450}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_33_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}297}]:} \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{     A =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T1\PYZus{}1/2 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{     B =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{plsq4}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov4}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{T2\PYZus{}1/2 =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{plsq4}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{log}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov4}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s}{     C =}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{plsq3}\PY{p}{[}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{+/\PYZhy{}}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{pcov3}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+A = 126.050108356 +/- 19.7357750046
+T1\_1/2 = 167.636003426 +/- 28.5365693497
+     B = 343.416360324 +/- 6.75188065931
+T2\_1/2 = 30.6570634081 +/- 2.07880252252
+     C = 1.87340745618 +/- 41.1695670848
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}281}]:} \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data (Trial 1)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp5}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{r}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.4}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexp4}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.4}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylin6}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.4}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{yexpsum1}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.7}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Raw Data (Trial 2)}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{Tcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{dTcounts\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{900}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Counts}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}289}]:} \PY{n}{figsize}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{7}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{,}\PY{l+m+mi}{105}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag1}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag1}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{plot}\PY{p}{(}\PY{n}{xlots}\PY{p}{,}\PY{n}{ylogexpsum}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZdl{}ln(Ae\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}1\PYZcb{}+Be\PYZca{}\PYZob{}\PYZhy{}t/}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s}{tau\PYZus{}2\PYZcb{}+C)\PYZdl{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{m}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{1.7}\PY{p}{)}
+          \PY{n}{scatter}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{marker}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{label}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Natural Log of Raw Data}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color} \PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{errorbar}\PY{p}{(}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{256}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{,}\PY{l+m+mi}{256}\PY{p}{)}\PY{p}{,}\PY{n}{log\PYZus{}Ag}\PY{p}{,}\PY{n}{dlog\PYZus{}Ag}\PY{p}{,}\PY{n}{ls}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{none}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{b}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{250}\PY{o}{*}\PY{l+m+mf}{2.5}\PY{p}{)}
+          \PY{n}{ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{6.5}\PY{p}{)}
+          \PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time (s)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{ln(Counts)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{14}\PY{p}{)}
+          \PY{n}{legend}\PY{p}{(}\PY{p}{)}
+          \PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{RadioactiveDecay_ANLYS_log_files/RadioactiveDecay_ANLYS_log_36_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor} }]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
