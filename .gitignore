@@ -1,0 +1,26 @@
+Brookside
+COM
+Drake\ High
+White\ Hill
+
+#extras from TeXShop
+#-------------------
+*.gz
+*.log
+*.bib
+*.aux
+
+#Cal Poly quarters
+#-----------------
+Cal_Poly/1st*
+Cal_Poly/2nd_qtr1/*
+Cal_Poly/2nd_qtr2/*
+Cal_Poly/2nd_qtr3/*
+Cal_Poly/2nd_qtr3/!PHYS202-S013!
+Cal_Poly/3rd_qtr1/*
+Cal_Poly/3rd_qtr1/!Q-Lab!
+Cal_Poly/3rd_qtr3/*
+Cal_Poly/3rd_qtr3/!Thermal_Physics_2!
+Cal_Poly/4th_qtr2/*
+Cal_Poly/4th_qtr3/*
+Cal_Poly/4th_qtr3/!Mathematica!
